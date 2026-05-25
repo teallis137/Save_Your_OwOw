@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>快速找藥</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="search-panel" aria-labelledby="page-title">
+        <div class="title-block">
+          <p class="eyebrow">Medicine Finder</p>
+          <h1 id="page-title">快速找藥</h1>
+        </div>
+
+        <form class="search-form" role="search">
+          <label class="sr-only" for="medicine-search">搜尋症狀或藥物</label>
+          <input
+            id="medicine-search"
+            type="search"
+            autocomplete="off"
+            placeholder="輸入症狀或藥名，例如：頭痛、心律錠、sumatriptan"
+            autofocus
+          />
+          <button type="button" id="clear-search" aria-label="清除搜尋">清除</button>
+        </form>
+
+        <div class="quick-tags" aria-label="快速搜尋">
+          <button type="button" data-query="頭痛">頭痛</button>
+          <button type="button" data-query="心律錠">心律錠</button>
+          <button type="button" data-query="脹氣">脹氣</button>
+          <button type="button" data-query="腸胃">腸胃</button>
+          <button type="button" data-query="感冒">感冒</button>
+          <button type="button" data-query="過敏">過敏</button>
+        </div>
+
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+      </section>
+
+      <section class="results-grid" id="results" aria-label="搜尋結果"></section>
+    </main>
+
+    <template id="result-card-template">
+      <article class="result-card">
+        <div class="image-wrap">
+          <img alt="" loading="lazy" />
+          <span class="location-number"></span>
+        </div>
+        <div class="result-body">
+          <h2></h2>
+          <p class="location-text"></p>
+          <dl class="medicine-list"></dl>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
